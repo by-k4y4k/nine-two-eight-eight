@@ -20,8 +20,24 @@ app.use(express.static('public'));
 
 // ROUTES ======================================================================
 
-app.get('/', function(req, res) {
-  res.render('landing');
+app.get('/', (req, res) => {
+  // Notice we leave the extension off - Express knows to look for .pug files
+  res.render('index');
+});
+
+// INDEX (HTTP GET) - Lists all clues
+app.get('/clues/', (req, res) => {
+  res.send(403);
+  // console.log(req.params);
+});
+
+// SHOW (HTTP GET) - Shows one clue
+app.get('/clues/:num', (req, res) => {
+  console.log(`CLUE ACCESS: ${req.params}`);
+  res.send(`
+  <p>Nice. This is clue #${req.params.num}</p>
+  <a href="/"> Go back </a> 
+  `);
 });
 
 // APP INIT ====================================================================
