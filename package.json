@@ -1,0 +1,17 @@
+{
+  "name": "nine-two-eight-eight",
+  "version": "1.0.0",
+  "main": "app.js",
+  "author": "kayak <41324271+by-k4y4k@users.noreply.github.com>",
+  "license": "MIT",
+  "dependencies": {
+    "dotenv": "^7.0.0",
+    "express": "^4.16.4",
+    "mongoose": "^5.4.20",
+    "pug": "^2.0.3"
+  },
+  "devDependencies": {
+    "eslint": "^5.16.0",
+    "eslint-config-google": "^0.12.0"
+  }
+}
