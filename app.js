@@ -32,12 +32,9 @@ app.get('/clues/', (req, res) => {
 });
 
 // SHOW (HTTP GET) - Shows one clue
-app.get('/clues/:num', (req, res) => {
+app.get('/clues/week-:num', (req, res) => {
   console.log(`CLUE ACCESS: ${req.params}`);
-  res.send(`
-  <p>Nice. This is clue #${req.params.num}</p>
-  <a href="/"> Go back </a> 
-  `);
+  res.render('clues');
 });
 
 // APP INIT ====================================================================
