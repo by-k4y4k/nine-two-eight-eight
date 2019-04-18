@@ -15,10 +15,10 @@ const settings = {
   js: true,
 
   // Do I need cachebusting?
-  cachebust: true,
+  cachebust: false,
 
   // Browsersync?
-  bs: false,
+  bs: true,
 
   // Images?
   img: true,
@@ -175,7 +175,7 @@ gulp.task('img', function() {
   );
 });
 
-gulp.task('bs', function() {
+gulp.task('bs', function(done) {
   browserSync.init({
     server: './dest',
     localOnly: true,
