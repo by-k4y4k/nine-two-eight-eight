@@ -17,8 +17,7 @@ app.set('view engine', 'pug');
 
 // This means that relative srcs or hrefs should resolve to files in public/
 app.use(express.static('./public/'));
-
-// app.use('/')
+ 
 
 // ROUTES ======================================================================
 
