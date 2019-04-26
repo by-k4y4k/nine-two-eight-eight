@@ -12,7 +12,7 @@ const settings = {
   sass: true,
 
   // JS (concat, babel)
-  js: true,
+  js: false,
 
   // Do I need cachebusting?
   cachebust: false,
@@ -129,8 +129,11 @@ gulp.task('pug', function(done) {
       .pipe(browserSync.stream());
 });
 
-gulp.task('js', function() {
+gulp.task('js', function(done) {
   if (!settings.js) {
+    del('./public/js');
+    gulp.src('./src/js/qr-scanner-worker.min.js').pipe(gulp.dest('./public/js'));
+    done();
     return;
   }
   return gulp
