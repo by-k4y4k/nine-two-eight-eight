@@ -5,11 +5,6 @@ const camHasCamera = document.getElementById('cam-has-camera');
 const camQrResult = document.getElementById('cam-qr-result');
 const camQrResultTimestamp = document.getElementById('cam-qr-result-timestamp');
 
-/**
- * 
- * @param {*} label 
- * @param {*} result 
- */
 function setResult(label, result) {
   label.textContent = result;
   camQrResultTimestamp.textContent = new Date().toString();
@@ -23,7 +18,5 @@ QrScanner.hasCamera().then((hasCamera) => camHasCamera.textContent = hasCamera);
 const scanner = new QrScanner(video, (result) => setResult(camQrResult, result));
 
 scanner.start();
+scanner.setInversionMode('both');
 
-document.getElementById('inversion-mode-select').addEventListener('change', (event) => {
-  scanner.setInversionMode(event.target.value);
-});
