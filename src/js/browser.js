@@ -4,8 +4,7 @@ const video = document.getElementById('qr-video');
 const camHasCamera = document.getElementById('cam-has-camera');
 const camQrResult = document.getElementById('cam-qr-result');
 const camQrResultTimestamp = document.getElementById('cam-qr-result-timestamp');
-const fileSelector = document.getElementById('file-selector');
-const fileQrResult = document.getElementById('file-qr-result');
+
 /**
  * 
  * @param {*} label 
@@ -20,8 +19,11 @@ function setResult(label, result) {
 }
 // ####### Web Cam Scanning #######
 QrScanner.hasCamera().then((hasCamera) => camHasCamera.textContent = hasCamera);
+
 const scanner = new QrScanner(video, (result) => setResult(camQrResult, result));
+
 scanner.start();
+
 document.getElementById('inversion-mode-select').addEventListener('change', (event) => {
   scanner.setInversionMode(event.target.value);
 });

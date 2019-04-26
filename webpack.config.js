@@ -5,6 +5,6 @@ module.exports = {
   entry: './src/js/browser.js',
   output: {
     filename: 'bundle.js',
-    path: path.resolve(__dirname, 'public/js'),
+    path: path.resolve(__dirname, 'src/js/bundle.js'),
   },
 };

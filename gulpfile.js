@@ -12,7 +12,7 @@ const settings = {
   sass: true,
 
   // JS (concat, babel)
-  js: false,
+  js: true,
 
   // Do I need cachebusting?
   cachebust: false,
@@ -129,25 +129,35 @@ gulp.task('pug', function(done) {
       .pipe(browserSync.stream());
 });
 
+const webpack = require('webpack-stream');
+
+
 gulp.task('js', function(done) {
-  if (!settings.js) {
-    del('./public/js');
-    gulp.src('./src/js/qr-scanner-worker.min.js').pipe(gulp.dest('./public/js'));
-    done();
-    return;
-  }
-  return gulp
-      .src(the.js.inFolder)
+  // 1. wipe existing js folder
+  del('./public/js');
+  // 2. copy scanner worker
+  gulp.src('./src/js/qr-scanner-worker.min.js').pipe(gulp.dest('./public/js'));
+
+  // 3 webpack
+  gulp.src('src/js/browser.js')
+      .pipe(webpack(require('./webpack.config.js')))
+      .pipe(gulp.dest('./cache'));
+
+  // 4. regular JS processing
+  gulp.src('./cache/*.js')
       .pipe(plumber())
-      .pipe(concat('main.js'))
       .pipe(
           babel({
             presets: ['@babel/env'],
           })
       )
       .pipe(uglify({toplevel: true}))
-      .pipe(gulp.dest(the.js.outFolder))
-      .pipe(browserSync.stream());
+      .pipe(gulp.dest('./public/js'));
+
+  // 5. clear cache
+  del(['./processing/', './qq/', './cache/']);
+
+  done();
 });
 
 gulp.task('scss', function() {
