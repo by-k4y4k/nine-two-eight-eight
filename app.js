@@ -37,6 +37,10 @@ app.get('/clues/week-:num', (req, res) => {
   res.render('clues');
 });
 
+app.get('/scan', (req, res) => {
+  res.render('scan');
+});
+
 // APP INIT ====================================================================
 
 // Where our database is - Heroku etc will have a hosted db -- local dev should
@@ -50,7 +54,7 @@ mongoose.connect(dbURL, {
 });
 
 // And now for actually LAUNCHING the app on localhost
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 1234;
 app.listen(PORT, process.env.IP, () => {
   // Prints a link you can click to the console (gotta save those keypresses)
   console.log(`Running on http://localhost:${PORT}`);

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+html(lang="en")
+  head
+    meta(charset="UTF-8")
+    meta(name="viewport", content="width=device-width, initial-scale=1.0")
+    meta(http-equiv="X-UA-Compatible", content="ie=edge")
+    title Scan QR code
+    link(rel="stylesheet", href="css/main.css")
+  body
+    main
+      section.section.container
+        h1.title Scan the code
+        canvas#canvas
+        #loadingMessage 🎥 Unable to access video stream (please make sure you have a webcam enabled)
+        canvas#canvas(hidden='')
+        #output(hidden='')
+          #outputMessage No QR code detected.
+          div(hidden='')
+            b Data:
+            span#outputData
+  script(src="js/main.js")

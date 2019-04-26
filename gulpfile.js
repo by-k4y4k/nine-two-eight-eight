@@ -89,7 +89,7 @@ const the = {
 // Tasks =======================================================================
 
 gulp.task('del', function() {
-  return del(['./dest']);
+  return del(['./dest', './public']);
 });
 
 gulp.task('pugData', function(done) {
@@ -166,13 +166,10 @@ gulp.task('img', function() {
   if (!settings.img) {
     return;
   }
-  return (
-    gulp
-        .src('./src/img/*.png')
-        .pipe(plumber())
-    // .pipe(imagemin())
-        .pipe(gulp.dest('./dest/img'))
-  );
+  return gulp
+      .src('./src/img/*.png')
+      .pipe(plumber())
+      .pipe(gulp.dest('./dest/img'));
 });
 
 gulp.task('bs', function(done) {
