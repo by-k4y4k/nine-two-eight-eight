@@ -19,10 +19,16 @@ function setResult(label, result) {
   label.textContent = result;
 
   clearTimeout(label.highlightTimeout);
-  label.highlightTimeout = setTimeout(() => label.style.color = 'inherit', 100);
+  label.highlightTimeout = setTimeout(
+      () => (label.style.color = 'inherit'),
+      100
+  );
+  redirectPage(result);
 }
 
-QrScanner.hasCamera().then((hasCamera) => camHasCamera.textContent = hasCamera);
+QrScanner.hasCamera().then(
+    (hasCamera) => (camHasCamera.textContent = hasCamera)
+);
 
 const scanner = new QrScanner(video, function(result) {
   console.log(result);
@@ -31,3 +37,20 @@ const scanner = new QrScanner(video, function(result) {
 
 scanner.start();
 scanner.setInversionMode('both');
+
+/**
+ * Redirects to other page.
+ * @param {string} location Accepts "/:destination"
+ */
+const redirectPage = (location) => {
+  // the redirect should not go offsite!
+
+  const regex = /https?/gi;
+
+  if (regex.test(location) == true) {
+    console.log('Redir failed');
+    return;
+  }
+
+  window.location(location);
+};
