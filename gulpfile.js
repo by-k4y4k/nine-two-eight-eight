@@ -135,6 +135,7 @@ const webpack = require('webpack-stream');
 gulp.task('js', function(done) {
   // 1. wipe existing js folder
   del('./public/js');
+
   // 2. copy scanner worker
   gulp.src('./src/js/qr-scanner-worker.min.js').pipe(gulp.dest('./public/js'));
 
@@ -155,10 +156,9 @@ gulp.task('js', function(done) {
       .pipe(gulp.dest('./public/js'));
 
   // 5. clear cache
-  del(['./processing/', './qq/', './cache/']);
+  return del(['./processing', './qq', './cache']);
 
-  done();
-});
+ });
 
 gulp.task('scss', function() {
   const plugins = [autoprefixer(), cssnano()];
