@@ -17,7 +17,6 @@ app.set('view engine', 'pug');
 
 // This means that relative srcs or hrefs should resolve to files in public/
 app.use(express.static('./public/'));
- 
 
 // ROUTES ======================================================================
 
@@ -34,8 +33,10 @@ app.get('/clues/', (req, res) => {
 
 // SHOW (HTTP GET) - Shows one clue
 app.get('/clues/week-:num', (req, res) => {
-  console.log(`CLUE ACCESS: ${req.params}`);
-  res.render('clues');
+  console.dir(req.params);
+  console.log(`clues/${req.params.num}`);
+  // res.render(`clues`);
+  res.render(`clues/${req.params.num}`);
 });
 
 app.get('/scan', (req, res) => {
@@ -50,9 +51,10 @@ const dbURL =
   process.env.DATABASEURL || 'mongodb://localhost/nine-two-eight-eight';
 
 // Create or connect to the db
-mongoose.connect(dbURL, {
-  useNewUrlParser: true,
-});
+
+// mongoose.connect(dbURL, {
+//   useNewUrlParser: true,
+// });
 
 // And now for actually LAUNCHING the app on localhost
 const PORT = process.env.PORT || 1234;
