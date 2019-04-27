@@ -23,6 +23,8 @@ function setResult(label, result) {
       () => (label.style.color = 'inherit'),
       100
   );
+  console.log('set result is firing');
+
   redirectPage(result);
 }
 
@@ -32,10 +34,14 @@ QrScanner.hasCamera().then(
 
 const scanner = new QrScanner(video, function(result) {
   console.log(result);
+  console.log('new scanner');
   return setResult(camQrResult, result);
 });
 
 scanner.start();
+
+console.log('new scanner');
+
 scanner.setInversionMode('both');
 
 /**
