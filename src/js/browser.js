@@ -25,6 +25,8 @@ function setResult(label, result) {
   );
   console.log('set result is firing');
 
+  console.log('result is' + result);
+
   redirectPage(result);
 }
 
