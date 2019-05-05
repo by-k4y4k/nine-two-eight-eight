@@ -6,9 +6,6 @@ const express = require('express');
 const app = express();
 // Pug is our templating lang -- used for all our pages, dynamic or not.
 const pug = require('pug');
-// Mongoose is how we talk to our db.
-const mongoose = require('mongoose');
-const bodyParser = require('body-parser');
 
 // APP CONFIG ==================================================================
 
@@ -28,7 +25,6 @@ app.get('/', (req, res) => {
 // INDEX (HTTP GET) - Lists all clues
 app.get('/clues/', (req, res) => {
   res.send(403);
-  // console.log(req.params);
 });
 
 // SHOW (HTTP GET) - Shows one clue
@@ -44,17 +40,6 @@ app.get('/scan', (req, res) => {
 });
 
 // APP INIT ====================================================================
-
-// Where our database is - Heroku etc will have a hosted db -- local dev should
-// connect to local machine
-const dbURL =
-  process.env.DATABASEURL || 'mongodb://localhost/nine-two-eight-eight';
-
-// Create or connect to the db
-
-// mongoose.connect(dbURL, {
-//   useNewUrlParser: true,
-// });
 
 // And now for actually LAUNCHING the app on localhost
 const PORT = process.env.PORT || 1234;
