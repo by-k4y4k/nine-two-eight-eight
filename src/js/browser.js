@@ -51,6 +51,7 @@ console.log('new scanner');
 const redirectPage = (location) => {
   // the redirect should not go offsite!
 
+  console.log(`redirect got ${location} `);
   const regex = /https?/gi;
 
   if (regex.test(location) !== true) {
@@ -58,5 +59,5 @@ const redirectPage = (location) => {
     return;
   }
 
-  window.location.href = `${location}`;
+  window.location.href = location;
 };
