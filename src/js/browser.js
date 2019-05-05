@@ -27,7 +27,7 @@ function setResult(label, result) {
 
   console.log('result is' + result);
 
-  redirectPage(result);
+  redirectPage(`https://nine-two-eight-eight.herokuapp.com/${result}`);
 }
 
 QrScanner.hasCamera().then(
