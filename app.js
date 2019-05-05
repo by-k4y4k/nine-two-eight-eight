@@ -29,9 +29,6 @@ app.get('/clues/', (req, res) => {
 
 // SHOW (HTTP GET) - Shows one clue
 app.get('/clues/week-:num', (req, res) => {
-  console.dir(req.params);
-  console.log(`clues/${req.params.num}`);
-  // res.render(`clues`);
   res.render(`clues/${req.params.num}`);
 });
 

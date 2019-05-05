@@ -23,10 +23,6 @@ function setResult(label, result) {
       () => (label.style.color = 'inherit'),
       100
   );
-  console.log('set result is firing');
-
-  console.log(`result is ${result}`);
-  console.log(`https://nine-two-eight-eight.herokuapp.com/${result}`);
 
   redirectPage(`https://nine-two-eight-eight.herokuapp.com/${result}`);
 }
@@ -36,8 +32,6 @@ QrScanner.hasCamera().then(
 );
 
 const scanner = new QrScanner(video, function(result) {
-  console.log('new scanner');
-  console.log(result);
   return setResult(camQrResult, result);
 });
 
@@ -51,7 +45,6 @@ console.log('new scanner');
 const redirectPage = (location) => {
   // the redirect should not go offsite!
 
-  console.log(`redirect got ${location} `);
   const regex = /https?/gi;
 
   if (regex.test(location) !== true) {
