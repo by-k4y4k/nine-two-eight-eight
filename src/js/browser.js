@@ -43,8 +43,7 @@ const scanner = new QrScanner(video, function(result) {
 
 scanner.start();
 console.log('new scanner');
-scanner.setInversionMode('both');
-
+ 
 /**
  * Redirects to other page.
  * @param {string} location Accepts "/:destination"
