@@ -43,7 +43,7 @@ const scanner = new QrScanner(video, function(result) {
 
 scanner.start();
 console.log('new scanner');
- 
+
 /**
  * Redirects to other page.
  * @param {string} location Accepts "/:destination"
@@ -58,5 +58,5 @@ const redirectPage = (location) => {
     return;
   }
 
-  window.location(location);
+  window.location.href = location;
 };
