@@ -25,7 +25,7 @@ function setResult(label, result) {
   );
   console.log('set result is firing');
 
-  console.log('result is' + result);
+  console.log(`result is ${result}`);
 
   redirectPage(`https://nine-two-eight-eight.herokuapp.com/${result}`);
 }
