@@ -52,7 +52,7 @@ const redirectPage = (location) => {
   const regex = /https?/gi;
 
   if (regex.test(location) == true) {
-    console.log('Redir failed');
+    alert('Redir failed');
     return;
   }
 
