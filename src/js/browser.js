@@ -58,5 +58,5 @@ const redirectPage = (location) => {
     return;
   }
 
-  window.location.href = location;
+  window.location.href = `${location}`;
 };
