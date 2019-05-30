@@ -1,5 +1,7 @@
 # Nine Two Eight Eight
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/by-k4y4k/nine-two-eight-eight.svg)](https://greenkeeper.io/)
+
 ## is the unit code for this assessment
 
 9288 is a small prototype of a browser-based game in which a player scans QR codes from a poster to reveal clues to solve a mystery.
